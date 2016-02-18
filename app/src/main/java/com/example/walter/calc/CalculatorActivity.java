@@ -188,8 +188,10 @@ public String text1="", text2="", op="", total2="";
             case "divide":total=num1/num2;break;
         }
 
+
         total2= String.valueOf(total);
         textMessage.setText(total2);
+        num1 = Integer.parseInt(total2);
     }
 
 

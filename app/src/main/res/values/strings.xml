@@ -1,9 +1,5 @@
 <resources>
     <string name="app_name">Calc</string>
     <string name="action_settings">Settings</string>
-<<<<<<< HEAD
-    <string name="calc_text_view"></string>
-=======
 
->>>>>>> calcjava
 </resources>
