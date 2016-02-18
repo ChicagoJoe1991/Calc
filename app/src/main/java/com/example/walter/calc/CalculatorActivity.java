@@ -14,10 +14,33 @@ public class CalculatorActivity extends AppCompatActivity {
 public String text1="", text2="", op="", total2="";
     public int total, num1, num2;
     public Boolean first=true;
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState){
+        savedInstanceState.putInt("num1",num1);
+        savedInstanceState.putInt("num2",num2);
+        savedInstanceState.putInt("total",total);
+        savedInstanceState.putString("text1", text1);
+        savedInstanceState.putString("text2", text2);
+        savedInstanceState.putString("op",op);
+        savedInstanceState.putString("total2",total2);
+        savedInstanceState.putBoolean("first",first);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
+        if(savedInstanceState != null){
+            num1 = savedInstanceState.getInt("num1");
+            num2 = savedInstanceState.getInt("num2");
+            total = savedInstanceState.getInt("total");
+            text1 = savedInstanceState.getString("text1");
+            text2 = savedInstanceState.getString("text2");
+            op = savedInstanceState.getString("op");
+            total2 = savedInstanceState.getString("total2");
+            first = savedInstanceState.getBoolean("first");
+        }
 
     }
 
@@ -191,7 +214,11 @@ public String text1="", text2="", op="", total2="";
 
         total2= String.valueOf(total);
         textMessage.setText(total2);
-        num1 = Integer.parseInt(total2);
+        num1 = total;
+        text1 = String.valueOf(total);
+        num2 = 0;
+        text2 = "";
+        total2 = "";
     }
 
 
