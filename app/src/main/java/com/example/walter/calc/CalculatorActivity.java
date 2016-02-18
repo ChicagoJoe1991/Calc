@@ -11,7 +11,8 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 public class CalculatorActivity extends AppCompatActivity {
-public String text1="", text2="", op="";
+public String text1="", text2="", op="", total2="";
+    public int total, num1, num2;
     public Boolean first=true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -160,8 +161,35 @@ public String text1="", text2="", op="";
     public void onClickDivide(View view){
         TextView textMessage = (TextView) findViewById(R.id.textView);
         first = false;
-        op="add";
+        op="divide";
         textMessage.setText("");
+    }
+    public void onClickClear(View view){
+        TextView textMessage = (TextView) findViewById(R.id.textView);
+        first = true;
+        op="";
+        text1="";
+        text2="";
+        total=0;
+        total2="";
+        num1=0;
+        num2=0;
+        textMessage.setText("");
+    }
+    public void onClickEqual(View view){
+        TextView textMessage = (TextView) findViewById(R.id.textView);
+        num1 = Integer.parseInt(text1);
+        num2 = Integer.parseInt(text2);
+
+        switch (op){
+            case "add":total=num1+num2;break;
+            case "subtract":total=num1-num2;break;
+            case "multiply":total=num1*num2;break;
+            case "divide":total=num1/num2;break;
+        }
+
+        total2= String.valueOf(total);
+        textMessage.setText(total2);
     }
 
 
